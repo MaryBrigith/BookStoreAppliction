@@ -3,10 +3,6 @@
 
 # Ignore Gradle build output directory
 build
-
-# Ignore Gradle build output directory
-/bin
-
-# Ignore Gradle build output directory
-/test-output
+!bin/
+!test-output/
 
