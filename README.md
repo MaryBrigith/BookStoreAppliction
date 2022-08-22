@@ -2,7 +2,7 @@
  UI and API automtion of bookstore application
 website  https://demoqa.com/
 
-##Technology:
+## Technology:
 - Tool : selenium
 - IDE : eclipse
 - Build Tool : Gradle
@@ -10,7 +10,7 @@ website  https://demoqa.com/
 - API Framework : RestAssured
 - Report : Allure
 
-##Instruction:
+## Instruction:
 git clone https://github.com/MaryBrigith/BookStoreAppliction.git
 Open command prompt from project folder
 Run below Command
