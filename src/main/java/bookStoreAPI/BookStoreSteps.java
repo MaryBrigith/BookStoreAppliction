@@ -30,19 +30,9 @@ public class BookStoreSteps extends Auth {
 
     @Step("Add a Book")
     public int addBook(String userId, String isbn) {
-//        List<BooksDto.CollectionOfIsbns> isbns = new ArrayList<>();
-//        BooksDto booksDto = new BooksDto();
-//        BooksDto.CollectionOfIsbns isbnItem = booksDto.new CollectionOfIsbns();
-//        booksDto.setUserId(userId);
-//        isbnItem.setIsbn(isbn);
-//        isbns.add(isbnItem);
-    	//booksDto.setCollectionOfIsbns(isbns);
-    	//booksOfUsernow.get(5).get("isbn");
+
         configure(baseUrl, true);
         System.out.println("userId"+ " isbn"+isbn);
-        //JSONObject requestParams = new JSONObject();
-       // requestParams.put("userId", userId);
-        //requestParams.put("isbn", isbn);
         requestSpec.body("{ \"userId\": \"" + userId + "\", " +
                 "\"collectionOfIsbns\": [ { \"isbn\": \"" + isbn + "\" } ]}");
         Response response = requestSpec.post("Books");
