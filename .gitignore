@@ -5,8 +5,8 @@
 build
 
 # Ignore Gradle build output directory
-bin
+/bin
 
 # Ignore Gradle build output directory
-test-output
+/test-output
 
