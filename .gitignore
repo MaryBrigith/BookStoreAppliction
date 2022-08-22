@@ -6,9 +6,7 @@ build
 
 # Ignore Gradle build output directory
 bin
-<<<<<<< HEAD
 
 # Ignore Gradle build output directory
 test-output
-=======
->>>>>>> b431a07f43dea867ff6b89b914f0007212d383fe
+
