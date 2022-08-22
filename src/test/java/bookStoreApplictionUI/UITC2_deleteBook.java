@@ -87,13 +87,14 @@ public class UITC2_deleteBook extends BasePage{
 	@Step("Delete book from collection ")
     @Description("Delete book from collection")
 
-    public void profile() throws IOException {
+    public void profile() throws IOException, InterruptedException {
 
         //Viewing Profile
 		List<String> bookList = bookStorePage.getUserBookLists();
 		if(!bookList.isEmpty()){
 			String book = bookStorePage.getUserBookLists().get(0);
 			bookStorePage.deleteBook(0);bookStorePage.clickOK();
+			Thread.sleep(3000);
 			if(isAlertPresent(driver)) {
 		         driver.switchTo().alert().accept();
 		        }

@@ -1,14 +1,10 @@
 package bookStoreAPI;
 
-import data.BooksData;
-import data.BooksRespons;
-import data.BooksRespons.Books;
 import io.qameta.allure.Step;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,20 +28,18 @@ public class BookStoreSteps extends Auth {
     public int addBook(String userId, String isbn) {
 
         configure(baseUrl, true);
-        System.out.println("userId"+ " isbn"+isbn);
+        System.out.println("userId"+ userId+ " isbn"+isbn);
         requestSpec.body("{ \"userId\": \"" + userId + "\", " +
                 "\"collectionOfIsbns\": [ { \"isbn\": \"" + isbn + "\" } ]}");
         Response response = requestSpec.post("Books");
         System.out.println("POST Books: " + response.statusLine());
         System.out.println("POST Books: " + response.asPrettyString());
-        System.out.println("response code" +response.getStatusCode());
         return response.getStatusCode();
     }
 
     @Step("Delete Books")
     public int deleteBooks(String userId) {
         configure(baseUrl, true);
-        System.out.println("delete books" + userId);
         Response response = requestSpec.delete("Books/?UserId=" + userId);
         System.out.println("DELETE Books: " + response.statusLine());
         System.out.println("DELETE Books: " + response.asPrettyString());

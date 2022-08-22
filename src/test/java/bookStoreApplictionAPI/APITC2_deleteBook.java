@@ -21,13 +21,12 @@ public class APITC2_deleteBook {
     public void init() {
         accountSteps = new AccountSteps();
         bookStoreSteps = new BookStoreSteps();
-        System.out.println("done");
     }
 
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         book = loginAndAddBook();
-        System.out.println("book" +book);
+        System.out.println("Book Added " +book);
     }
 
     @AfterTest(alwaysRun = true)
@@ -37,16 +36,15 @@ public class APITC2_deleteBook {
     }
     
 
-    @Test(priority = 1, groups = "api")
-    @Description("Test Case1 - Book added to collection")
+    @Test(priority = 1)
+    @Description("Add book to collection")
     public void addBookTest() {
-    	System.out.println("BaseAPITest42");
         Assert.assertTrue(findBookInCollection(book.get("isbn")), "Book not added to collection:");
         System.out.println("Book added to collection");
     }
 
     @Test(priority = 2, groups = "api")
-    @Description("Test Case2 - Book deleted from collection")
+    @Description("Delete book from collection")
     public void deleteBookTest() {
         Assert.assertEquals(bookStoreSteps.deleteBook(userId, book.get("isbn")), 204, "Book is absent in collection:");
         Assert.assertFalse(findBookInCollection(book.get("isbn")), "Book not deleted from collection:");
@@ -56,11 +54,9 @@ public class APITC2_deleteBook {
 
     private Map<String, String> loginAndAddBook() {
         userId = accountSteps.login().getUserId();
-        System.out.println(userId);
         Assert.assertEquals(bookStoreSteps.deleteBooks(userId), 204, "Can't prepare collection:");
         List<Map<String, String>> booksList = bookStoreSteps.getBooks();
         Map<String, String> randomBook = booksList.get(new Random().nextInt(booksList.size()));
-        System.out.println(randomBook);
         int responseCode =bookStoreSteps.addBook(userId, randomBook.get("isbn"));
         Assert.assertEquals(responseCode, 201, "Can't add book to collection:");
         return randomBook;
@@ -68,7 +64,7 @@ public class APITC2_deleteBook {
 
     private boolean findBookInCollection(String isbn) {
         List<Map<String, String>> books = accountSteps.getUserData(userId).getBooks();
-        System.out.println("books" + books);
+        System.out.println("Books in collection " + books);
         for (Map<String, String> item : books) {
             if (item.get("isbn").equals(isbn)) {
                 return true;
