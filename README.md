@@ -11,15 +11,15 @@ website  https://demoqa.com/
 - Report : Allure
 
 ## Instruction:
-git clone https://github.com/MaryBrigith/BookStoreAppliction.git
-Open command prompt from project folder
-Run below Command
+1. git clone https://github.com/MaryBrigith/BookStoreAppliction.git
+2. Open command prompt from project folder
+3. Run below Command
 ```sh
 gradle clean test
 ```
-API script will run
-selenium will open browser for UI Automtion
-To view Report 
+4. API script will run
+5. selenium will open browser for UI Automtion
+6. To view Report 
 ```sh
   allure serve
 ```
