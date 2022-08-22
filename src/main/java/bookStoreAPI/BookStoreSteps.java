@@ -33,7 +33,6 @@ public class BookStoreSteps extends Auth {
 
         configure(baseUrl, true);
         System.out.println("userId"+ " isbn"+isbn);
-
         requestSpec.body("{ \"userId\": \"" + userId + "\", " +
                 "\"collectionOfIsbns\": [ { \"isbn\": \"" + isbn + "\" } ]}");
         Response response = requestSpec.post("Books");
