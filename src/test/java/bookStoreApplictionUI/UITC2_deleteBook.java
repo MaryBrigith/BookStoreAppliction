@@ -93,12 +93,9 @@ public class UITC2_deleteBook extends BasePage{
 		List<String> bookList = bookStorePage.getUserBookLists();
 		if(!bookList.isEmpty()){
 			String book = bookStorePage.getUserBookLists().get(0);
-			bookStorePage.deleteBook(0);bookStorePage.clickOK();
-			Thread.sleep(3000);
-			if(isAlertPresent(driver)) {
-		         driver.switchTo().alert().accept();
-		        }
-		        
+			bookStorePage.deleteBook(0);
+			bookStorePage.clickOK();
+			acceptAlert();
 			Assert.assertTrue(!bookStorePage.getUserBookLists().contains(book),"Book not availble in collection");
 			System.out.println("Book deleted from collection");
 		}

@@ -10,6 +10,9 @@ import bookStoreAPI.BookStoreSteps;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import io.qameta.allure.Story;
+
+@Story("API Test - Delete book")
 public class APITC2_deleteBook {
 
     private AccountSteps accountSteps;

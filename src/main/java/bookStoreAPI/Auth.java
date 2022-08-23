@@ -2,7 +2,9 @@ package bookStoreAPI;
 
 import core.TestManager;
 import data.TokenResponse;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 

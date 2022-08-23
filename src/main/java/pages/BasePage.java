@@ -86,6 +86,15 @@ public class BasePage {
 		return true;
         
     }
+    public void acceptAlert() {
+    	if(ExpectedConditions.alertIsPresent() == null) {
+    		System.out.println("Alert not prsent");
+    	}else {
+    		driver.switchTo().alert().accept();
+    		
+    	}
+        
+    }
     
     @AfterClass
     public void tearDown() {

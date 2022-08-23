@@ -10,6 +10,10 @@ import bookStoreAPI.BookStoreSteps;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import io.qameta.allure.Story;
+
+
+@Story("API Test - Add book")
 public class APITC1_addBook {
 
     private AccountSteps accountSteps;
@@ -19,6 +23,7 @@ public class APITC1_addBook {
 
     @BeforeTest(alwaysRun = true)
     public void init() {
+    	
         accountSteps = new AccountSteps();
         bookStoreSteps = new BookStoreSteps();
     }
